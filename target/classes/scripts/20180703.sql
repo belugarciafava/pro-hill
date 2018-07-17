@@ -1,0 +1,4 @@
+use policies;
+
+ALTER TABLE endorsement_coverage
+ADD COLUMN ACTION VARCHAR(50) NOT NULL DEFAULT 'ADD';

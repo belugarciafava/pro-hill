@@ -1,0 +1,4 @@
+use policies;
+
+ALTER TABLE policy
+ADD COLUMN STATUS VARCHAR(50) NOT NULL AFTER policy_term;
