@@ -1,1 +1,3 @@
-com/iunigo/Application.class
+com/Application.class
+com/eaprego/prohill/model/Device.class
+com/eaprego/prohill/controller/ServicesController.class
