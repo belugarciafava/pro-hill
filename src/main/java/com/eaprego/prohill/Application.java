@@ -1,4 +1,4 @@
-package com;
+package com.eaprego.prohill;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
