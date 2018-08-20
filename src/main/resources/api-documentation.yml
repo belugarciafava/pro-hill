@@ -1,0 +1,8 @@
+api.documentation.title: Iunigo Policy Service
+api.documentation.description: Microservice to create and manage policies for Iunigo users
+api.documentation.version: 1.0
+api.documentation.terms.of.service.url: http://wwww.iunigo.com/tos
+api.documentation.licence: Copyright Licence
+api.documentation.licence.url: http://www.iunigo.com/license
+api.documentation.contact.url: http://wwww.iunigo.com
+api.documentation.contact.email: hello@iunigo.com
