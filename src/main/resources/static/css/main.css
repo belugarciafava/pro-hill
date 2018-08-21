@@ -9,3 +9,9 @@ h2{
 footer{
     margin-top:60px;
 }
+
+/* navbar */
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
