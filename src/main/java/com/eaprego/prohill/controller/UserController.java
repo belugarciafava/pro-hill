@@ -1,6 +1,8 @@
 package com.eaprego.prohill.controller;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.vote.AuthenticatedVoter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Map;
 
 @Controller
+@Secured(AuthenticatedVoter.IS_AUTHENTICATED_FULLY)
 public class UserController {
 
     // inject via application.properties
@@ -30,10 +33,5 @@ public class UserController {
     public String clients(Map<String, Object> model) {
         model.put("message", this.message);
         return "clients";
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        return "login";
     }
 }
