@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Pro - Hill </title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+    <div class="login-panel panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Dispositivos</h3>
+        </div>
+        <div class="panel-body">
+            <table id="device" class="display" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Dispositivo</th>
+                    <th>Mac</th>
+                    <th>Cliente</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Dispositivo 1</td>
+                    <td>AAVBCSSS</td>
+                    <td>C1</td>
+                </tr>
+                <tr>
+                    <td>Dispositivo 1</td>
+                    <td>AAVBCS22</td>
+                    <td>C2</td>
+                </tr>
+                <tr>
+                    <td>Dispositivo 1</td>
+                    <td>AAVBCSDD</td>
+                    <td>C3</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+<script>
+    $(document).ready(function() {
+        $('#device').DataTable();
+    });
+
+
+
+
+</script>
+</html>

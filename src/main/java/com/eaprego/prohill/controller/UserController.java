@@ -20,6 +20,18 @@ public class UserController {
         return "welcome";
     }
 
+    @GetMapping("/device")
+    public String device(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "device";
+    }
+
+    @GetMapping("/clients")
+    public String clients(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "clients";
+    }
+
     @GetMapping("/login")
     public String login() {
         return "login";
