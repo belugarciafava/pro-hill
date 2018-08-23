@@ -18,10 +18,10 @@ public class EventController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EventController.class);
 
-    @PostMapping("/events")
-    public ResponseEntity<Void> addEvent(@RequestBody final String body) {
-        LOGGER.info("Body {}", body);
-        eventService.addEvent(body);
+    @PostMapping("/events/{data}")
+    public ResponseEntity<Void> addEvent(@PathVariable final String data) {
+        LOGGER.info("Data {}", data);
+        eventService.addEvent(data);
         return ResponseEntity.ok().build();
     }
 
