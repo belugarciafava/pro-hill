@@ -5,7 +5,6 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.vote.AuthenticatedVoter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
@@ -20,7 +19,7 @@ public class UserController {
     @GetMapping("/")
     public String welcome(Map<String, Object> model) {
         model.put("message", this.message);
-        return "welcome";
+        return "events";
     }
 
     @GetMapping("/device")
@@ -33,5 +32,11 @@ public class UserController {
     public String clients(Map<String, Object> model) {
         model.put("message", this.message);
         return "clients";
+    }
+
+    @GetMapping("/events")
+    public String events(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "events";
     }
 }
