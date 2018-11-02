@@ -1,11 +1,13 @@
 package com.eaprego.prohill.controller;
 
+import com.eaprego.prohill.model.Event;
 import com.eaprego.prohill.service.EventService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,9 +28,8 @@ public class EventController {
     }
 
     @GetMapping("/events")
-    public ResponseEntity<List<String>> addEvent() {
+    public ResponseEntity<List<Event>> addEvent() {
         LOGGER.info("Getting All Events");
         return ResponseEntity.ok(eventService.getEvents());
     }
-
 }
