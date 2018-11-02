@@ -14,12 +14,14 @@
         <thead>
         <tr>
             <th>Event</th>
+            <th>Mac</th>
             <th>Description</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="event : ${events}">
             <td th:text="|${event.id}|" />
+            <td th:text="|${event.mac}|" />
             <td th:text="|${event.description}|" />
         </tr>
         </tbody>

@@ -2,10 +2,12 @@ package com.eaprego.prohill.model;
 
 public class Event {
     private Long id;
+    private String mac;
     private String description;
 
-    public Event(Long id, String description) {
+    public Event(Long id, String mac, String description) {
         this.id = id;
+        this.mac = mac;
         this.description = description;
     }
 
@@ -23,6 +25,14 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getMac() {
+        return mac;
+    }
+
+    public void setMac(String mac) {
+        this.mac = mac;
     }
 
     @Override

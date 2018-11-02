@@ -10,10 +10,11 @@ import java.util.*;
 public class EventService {
     private List<Event> events = new ArrayList<Event>();
 
-    public void addEvent(String event) {
-        String decodedEvent = Base64Util.decode(event);
+    public void addEvent(String data) {
+        final String[] elements = data.split(",", 3);
+        String decodedEvent = Base64Util.decode(elements[2]);
         System.out.println("Decoded: " + decodedEvent);
-        this.events.add(new Event(new Random().nextLong(), decodedEvent));
+        this.events.add(new Event(new Random().nextLong(), elements[0], decodedEvent));
     }
 
     public List<Event> getEvents() {
