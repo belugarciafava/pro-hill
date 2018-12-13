@@ -50,13 +50,13 @@ public class UserController {
         return "clients";
     }
 
-    @GetMapping("/signup")
+    @GetMapping("/addclientform")
     public String showSignUpForm(Client user) {
         return "add-client";
     }
 
     @PostMapping("/addclient")
-    public String addUser(Client client, BindingResult result, Model model) {
+    public String addUser(@Valid Client client, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "add-client";
         }
