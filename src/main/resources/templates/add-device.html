@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Pro - Hill </title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+    <div class="login-panel panel panel-default">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">Add a new device</h3>
+        </div>
+
+        <div class="panel-body">
+
+            <form action="#" th:action="@{/adddevice}" th:object="${device}" method="post">
+
+                <div class="form-group">
+                    <label for="mac">MAC</label>
+                    <input type="text" th:field="*{mac}" id="mac" placeholder="Mac"
+                           class="form-control"/>
+                </div>
+
+                <input type="submit" value="Add Device" class="btn btn-primary"/>
+            </form>
+
+        </div>
+            
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Pro - Hill </title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+    <div class="login-panel panel panel-default">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">Add a new client</h3>
+        </div>
+
+        <div class="panel-body">
+
+            <form action="#" th:action="@{/addclient}" th:object="${client}" method="post">
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" th:field="*{description}" id="description" placeholder="Description"
+                           class="form-control"/>
+                </div>
+
+                <input type="submit" value="Add Client" class="btn btn-primary"/>
+            </form>
+
+        </div>
+            
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+
+</html>

@@ -1,4 +1,7 @@
 package com.eaprego.prohill.repository;
 
-public class DeviceRepository {
+import com.eaprego.prohill.model.Device;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DeviceRepository extends JpaRepository<Device,Long> {
 }

@@ -1,6 +1,13 @@
 package com.eaprego.prohill.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Event {
+    @Id
+    @GeneratedValue
     private Long id;
     private String mac;
     private String description;
@@ -11,12 +18,10 @@ public class Event {
         this.description = description;
     }
 
-    public Long getId() {
-        return id;
-    }
+//getters and setters and default constructor used by thymeleaf
 
-    public void setId(Long id) {
-        this.id = id;
+
+    public Event() {
     }
 
     public String getDescription() {
