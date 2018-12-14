@@ -21,6 +21,7 @@
         <swagger-maven.version>3.1.6</swagger-maven.version>
         <core.loggers.version>0.0.4</core.loggers.version>
         <docker.image.prefix>belugarciafava</docker.image.prefix>
+        <mysql-connector.version>6.0.6</mysql-connector.version>
     </properties>
 
     <parent>
@@ -68,6 +69,17 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+
+        <!-- DATASOURCE -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector.version}</version>
         </dependency>
 
         <dependency>

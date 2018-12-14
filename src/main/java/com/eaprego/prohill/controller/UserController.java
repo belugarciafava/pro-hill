@@ -1,7 +1,11 @@
 package com.eaprego.prohill.controller;
 
 import com.eaprego.prohill.model.Client;
+import com.eaprego.prohill.model.Device;
+import com.eaprego.prohill.model.Event;
 import com.eaprego.prohill.repository.ClientRepository;
+import com.eaprego.prohill.repository.DeviceRepository;
+import com.eaprego.prohill.repository.EventRepository;
 import com.eaprego.prohill.service.EventService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,13 +28,21 @@ public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
-    @Autowired
-    private EventService eventService;
-
-    // inject via application.properties
     @Value("${welcome.message:test}")
     private String message = "Hello World";
-    private ClientRepository clientRepository;
+    private final EventService eventService;
+    private final ClientRepository clientRepository;
+    private final DeviceRepository deviceRepostiroy;
+    private final EventRepository eventRepository;
+
+    @Autowired
+    public UserController(EventService eventService, ClientRepository clientRepository, DeviceRepository deviceRepository,
+                          EventRepository eventRepository) {
+        this.eventService = eventService;
+        this.clientRepository = clientRepository;
+        this.deviceRepostiroy = deviceRepository;
+        this.eventRepository = eventRepository;
+    }
 
     @GetMapping("/")
     public String welcome(Map<String, Object> model) {
@@ -41,6 +53,21 @@ public class UserController {
     @GetMapping("/device")
     public String device(Map<String, Object> model) {
         model.put("message", this.message);
+        return "device";
+    }
+
+    @GetMapping("/adddeviceform")
+    public String showDeviceForm(Device device) {
+        return "add-device";
+    }
+
+    @PostMapping("/adddevice")
+    public String addUser(@Valid Device device, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "add-device";
+        }
+        deviceRepostiroy.save(device);
+        //model.addAttribute("users", userRepository.findAll());
         return "device";
     }
 
@@ -60,10 +87,8 @@ public class UserController {
         if (result.hasErrors()) {
             return "add-client";
         }
-
         clientRepository.save(client);
-
-     //   model.addAttribute("users", userRepository.findAll());
+        //model.addAttribute("users", userRepository.findAll());
         return "clients";
     }
 
@@ -78,6 +103,21 @@ public class UserController {
     public String getEvents(final Model model) {
         LOGGER.info("Getting All Events");
         model.addAttribute("events", eventService.getEvents());
+        return "events";
+    }
+
+    @GetMapping("/addeventform")
+    public String showAddEventForm(Event event) {
+        return "add-event";
+    }
+
+    @PostMapping("/addevent")
+    public String addEvent(@Valid Event event, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "add-event";
+        }
+        eventRepository.save(event);
+        //model.addAttribute("users", userRepository.findAll());
         return "events";
     }
 }
